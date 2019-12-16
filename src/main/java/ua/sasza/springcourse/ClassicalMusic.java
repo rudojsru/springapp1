@@ -1,9 +1,11 @@
 package ua.sasza.springcourse;
 
+
+import org.springframework.stereotype.Component;
+
+@Component("clas")
 public class ClassicalMusic implements Music {
-    public static  ClassicalMusic getClassicalMusic(){
-        return new ClassicalMusic();
-    }
+
     private ClassicalMusic() {
     }
 
@@ -14,6 +16,8 @@ public class ClassicalMusic implements Music {
     public void doMydistroction(){
         System.out.println("Do My distroi");
     }
+
+
     @Override
     public String getSong() {
         return "Hungary Rapsodia";
