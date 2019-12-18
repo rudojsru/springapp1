@@ -3,11 +3,12 @@ package ua.sasza.springcourse;
 
 import org.springframework.stereotype.Component;
 
-@Component("clas")
-public class ClassicalMusic implements Music {
+import java.util.ArrayList;
+import java.util.List;
 
-    private ClassicalMusic() {
-    }
+@Component
+public class ClassicalMusic implements Music {
+    List clas = new ArrayList();
 
     public void doMyInit(){
         System.out.println("Doing my initialization");
@@ -19,8 +20,13 @@ public class ClassicalMusic implements Music {
 
 
     @Override
-    public String getSong() {
-        return "Hungary Rapsodia";
+    public List getSong() {
+
+        clas.add("Hungary Rapsodia");
+        clas.add("Betchowen Letniaja soneta");
+        clas.add("Mocart wremena goda");
+
+        return clas;
     }
 
 
