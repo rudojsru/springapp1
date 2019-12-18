@@ -1,19 +1,23 @@
 package ua.sasza.springcourse;
 
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@Scope("singleton")
 public class ClassicalMusic implements Music {
     List clas = new ArrayList();
-
+@PostConstruct
     public void doMyInit(){
         System.out.println("Doing my initialization");
     }
-
+@PreDestroy
     public void doMydistroction(){
         System.out.println("Do My distroi");
     }
