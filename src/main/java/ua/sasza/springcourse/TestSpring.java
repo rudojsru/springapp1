@@ -1,5 +1,6 @@
 package ua.sasza.springcourse;
 
+ import org.springframework.beans.factory.annotation.Qualifier;
  import org.springframework.context.annotation.AnnotationConfigApplicationContext;
  import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestSpring {
@@ -20,7 +21,8 @@ public class TestSpring {
         MusicPlayer musicPlayer =context.getBean("musicPlayer",MusicPlayer.class);
         System.out.println(musicPlayer.getName());
         System.out.println(musicPlayer.getVolume());
-        musicPlayer.playMusic(JanrOfMusic.JAZ);
+
+        musicPlayer.playMusic();
 
 
       //  ClassicalMusic classicalMusic=context.getBean("classicalMusic",ClassicalMusic.class);

@@ -5,25 +5,27 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
- import java.util.Random;
+import java.util.List;
+import java.util.Random;
 
  public class MusicPlayer {
 
-@Qualifier("rockMusic")
-private Music musicRock;
-@Qualifier("classicalMusic")
-private Music musicClassical;
-@Qualifier("jazMusic")
-private Music musicJaz;
+//@Qualifier("rockMusic")
+//private Music musicRock;
+//@Qualifier("classicalMusic")
+//private Music musicClassical;
+//@Qualifier("jazMusic")
+//private Music musicJaz;
+////@Qualifier("musicList")
+private List<Music> musicList;
 
 @Value("${musicPlayer.name}")
 private String name;
 @Value("${musicPlayer.volume}")
 private  int volume;
 
-     public MusicPlayer(Music musicRock, Music musicClassical) {
-         this.musicRock = musicRock;
-         this.musicClassical = musicClassical;
+     public MusicPlayer(List<Music> musicList) {
+         this.musicList = musicList;
      }
 
      public String getName() {
@@ -34,22 +36,12 @@ private  int volume;
         return volume;
     }
 
-    public void playMusic(JanrOfMusic janrOfMusic) {
+    public void playMusic() {
         Random random =new Random();
-        int randoNumber =random.nextInt(3);
-        if (janrOfMusic == JanrOfMusic.JAZ){
+        int randomNuber=random.nextInt(3);
+        Music music = musicList.get(randomNuber);
 
-            System.out.println("Plaing is "+ new JazMusic().getSong().get(randoNumber));
-          //  System.out.println("name = "+name);
-          //  System.out.println("volume = "+volume );
-        }
-        if (janrOfMusic == JanrOfMusic.CLASSICAL){
+            System.out.println("Plaing is "+ music.getSong());
 
-            System.out.println("Plaing is "+ new ClassicalMusic().getSong().get(randoNumber));
-        }
-        if (janrOfMusic == JanrOfMusic.ROCK){
-
-            System.out.println("Plaing is "+ new RockMusic().getSong().get(randoNumber));
-        }
       }
 }
