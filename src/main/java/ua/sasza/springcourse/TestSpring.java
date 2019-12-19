@@ -29,7 +29,7 @@ public class TestSpring {
       //  ClassicalMusic classicalMusic2=context.getBean("classicalMusic",ClassicalMusic.class);
       //  System.out.println(classicalMusic==classicalMusic2);
 
-        context.close();
+         context.close();
     }
 
 }
