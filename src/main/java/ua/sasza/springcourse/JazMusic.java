@@ -5,8 +5,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
-public class JazMusic implements Music {
+ public class JazMusic implements Music {
     List jaz=new ArrayList();
     @Override
     public List getSong() {
